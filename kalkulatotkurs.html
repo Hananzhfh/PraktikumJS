@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="js1.css">
+        <script src="kursmatauang.js" type="text/JavaScript"></script>
+        
+    </head>
+    <body>
+        <h1>KURS MATA UANG ASING KE RUPIAH</h1>
+        <form id="kalkulator">
+                <input type="text" id="dari" value="" onchange="kurs()">
+                <label>Mata uang : </label>
+                <select id="matauang" onchange="kurs()">
+                    <option>--Pilih--</option>
+                    <option value="dollar" id="dollar">Dollar US</option>
+                    <option value="dollarsg" id="dollarsg">Dollar Singapore</option>
+                    <option value="rm" id="rm">Ringgit Malaysia</option>
+                    <option value="yenj" id="yenj">Yen Jepang</option>
+                    <option value="euro" id="euro">Euro</option>
+                    <option value="riyal" id="riyal">Riyal Arab Saudi</option>
+                </select>
+                Rp.<p id="hasil"></p>
+        </form>
+
+        <script>
+            function kurs(){
+                let Nilai = Number(document.getElementById("dari").value);
+                let pilihan = document.getElementById("matauang").value;
+                let usd = Number("9915");
+                let usg = Number("13472");
+                let myr = Number("874");
+                let jpy = Number("120");
+                let eur = Number("15888");
+                let riy = Number("3592");
+                if (isNaN(Nilai)) {
+                    alert("Isilah Menggunakan angka!");
+                }
+                else{
+                    if (pilihan == "dollar"){
+                        hasil = Nilai * usd;
+                        document.getElementById("hasil").innerHTML = hasil;
+                    }
+                    if (pilihan == "dollarsg"){
+                        hasil = Nilai * usg;
+                        document.getElementById("hasil").innerHTML = hasil;
+                    }
+                    if (pilihan == "rm"){
+                        hasil = Nilai * myr;
+                        document.getElementById("hasil").innerHTML = hasil;
+                    }
+                    if (pilihan == "yenj"){
+                        hasil = Nilai * jpy;
+                        document.getElementById("hasil").innerHTML = hasil;
+                    }
+                    if (pilihan == "euro"){
+                        hasil = Nilai * eur;
+                        document.getElementById("hasil").innerHTML = hasil;
+                    }
+                    if (pilihan == "riyal"){
+                        hasil = Nilai * riy;
+                        document.getElementById("hasil").innerHTML = hasil;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
